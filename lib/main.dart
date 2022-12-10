@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/MyThemeData.dart';
 import 'package:islami_app/screens/home/home.dart';
+import 'package:islami_app/screens/home/quran/sura__detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
       darkTheme: MyThemeData.darkTheme,
       themeMode: ThemeMode.light,
       routes: {
-        HomeScreen.routeName:(_)=>HomeScreen()
+        HomeScreen.routeName:(_)=>HomeScreen(),
+        SuraDetail.routeName:(_)=>SuraDetail(),
+
       },
       initialRoute: HomeScreen.routeName,
 
