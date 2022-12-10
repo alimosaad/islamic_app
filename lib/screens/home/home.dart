@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text("Islami",style: TextStyle(color: MyThemeData.accentColor,fontSize: 24),),
+          title: Text("Islami",style: TextStyle(color: MyThemeData.BlackColor,fontSize: 24),),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               });
             },
-            selectedItemColor: MyThemeData.accentColor,
+            selectedItemColor: MyThemeData.BlackColor,
             items: const [
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/moshaf_gold.png")),label:"Quran" ),
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/Path 1.png")),label:"Hadeth" ),
