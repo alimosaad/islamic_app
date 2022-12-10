@@ -30,7 +30,7 @@ class QuranTab extends StatelessWidget {
               ),
               itemCount: sura_names.length,
                 itemBuilder: (_,index){
-              return SuraNameItem(sura_names[index]);
+              return SuraNameItem(sura_names[index],index);
             }),
           )
         ],
