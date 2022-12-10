@@ -11,7 +11,6 @@ class QuranTab extends StatelessWidget {
         children: [
           Image.asset("assets/images/Screenshot (1).png"),
 
-
         ],
       ),
     );
