@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/screens/home/quran/ayaat.dart';
 
 import '../../../MyThemeData.dart';
 
@@ -34,10 +35,17 @@ class _SuraDetailState extends State<SuraDetail> {
           ),
         ),
         body:aya.length==0?Center(child: CircularProgressIndicator()):
-        ListView.builder(
+        ListView.separated(
+          separatorBuilder: (c,index){
+            return Divider(
+              color: MyThemeData.BlackColor,
+              indent: 30,
+              endIndent: 30,
+            );
+          },
             itemCount: aya.length,
             itemBuilder: (context, index) {
-              return Text("${aya[index]}");
+              return AyaItem("${aya[index]}");
             }),
       ),
     );
