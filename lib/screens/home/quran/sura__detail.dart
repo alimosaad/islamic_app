@@ -35,18 +35,28 @@ class _SuraDetailState extends State<SuraDetail> {
           ),
         ),
         body:aya.length==0?Center(child: CircularProgressIndicator()):
-        ListView.separated(
-          separatorBuilder: (c,index){
-            return Divider(
-              color: MyThemeData.BlackColor,
-              indent: 30,
-              endIndent: 30,
-            );
-          },
-            itemCount: aya.length,
-            itemBuilder: (context, index) {
-              return AyaItem("${aya[index]}");
-            }),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              color: MyThemeData.primaryColor
+            ),
+            borderRadius: BorderRadius.circular(20)
+          ),
+          margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
+          child: ListView.separated(
+            separatorBuilder: (c,index){
+              return Divider(
+                color: MyThemeData.BlackColor,
+                indent: 30,
+                endIndent: 30,
+              );
+            },
+              itemCount: aya.length,
+              itemBuilder: (context, index) {
+                return AyaItem("${aya[index]}");
+              }),
+        ),
       ),
     );
   }
