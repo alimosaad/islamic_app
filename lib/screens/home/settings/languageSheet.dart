@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/MyThemeData.dart';
 import 'package:islami_app/provider/my_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class LanguageBottobSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class LanguageBottobSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "English",
+                AppLocalizations.of(context)!.english,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: provider.languageCode == 'en'
                         ? MyThemeData.primaryColor
@@ -44,7 +44,7 @@ class LanguageBottobSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Arabic",
+                AppLocalizations.of(context)!.arabic,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: provider.languageCode == 'ar'
                         ? MyThemeData.primaryColor
