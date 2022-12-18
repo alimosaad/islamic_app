@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AyaItem extends StatelessWidget {
-  String ayat;
-  AyaItem(this.ayat);
+  String aya;
+  AyaItem(this.aya);
 
   @override
   Widget build(BuildContext context) {
-    return Text(ayat,style: Theme.of(context).textTheme.titleMedium,textAlign: TextAlign.center,);
+    return Text(aya,style: Theme.of(context).textTheme.titleMedium,textAlign: TextAlign.center,);
   }
 }

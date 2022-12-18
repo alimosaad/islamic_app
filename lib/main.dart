@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: provider.mode,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
         SuraDetail.routeName: (_) => SuraDetail(),

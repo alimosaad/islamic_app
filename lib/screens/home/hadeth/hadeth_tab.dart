@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/MyThemeData.dart';
+import 'package:islami_app/provider/my_provider.dart';
 import 'package:islami_app/screens/home/hadeth/ahadeth_detail.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 class HadethTab extends StatefulWidget {
   @override
   State<HadethTab> createState() => _HadethTabState();
@@ -13,6 +15,7 @@ class _HadethTabState extends State<HadethTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provide=Provider.of<MyProvider>(context);
     if (Ahadeth.isEmpty) {
       loadHadeth();
     }
@@ -22,15 +25,21 @@ class _HadethTabState extends State<HadethTab> {
         children: [
           Image.asset("assets/images/ahadeth_main.png"),
           Divider(
-            color: MyThemeData.primaryColor,
+            color: provide.mode == ThemeMode.light
+                ? MyThemeData.primaryColor
+                : MyThemeData.YellowColor,
             thickness: 3,
           ),
           Text(
             AppLocalizations.of(context)!.ahadeth,
-            style: Theme.of(context).textTheme.titleMedium,
+            style: TextStyle(color: provide.mode == ThemeMode.light
+                ? MyThemeData.BlackColor
+                : MyThemeData.WhiteColor, fontSize: 24),
           ),
           Divider(
-            color: MyThemeData.OnprimaryColor,
+            color: provide.mode == ThemeMode.light
+                ? MyThemeData.primaryColor
+                : MyThemeData.YellowColor,
             thickness: 3,
           ),
           Ahadeth.isEmpty
@@ -51,7 +60,9 @@ class _HadethTabState extends State<HadethTab> {
                             },
                             child: Text(
                               Ahadeth[iindex].title,
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: TextStyle(color: provide.mode == ThemeMode.light
+                                  ? MyThemeData.BlackColor
+                                  : MyThemeData.WhiteColor, fontSize: 25),
                               textAlign: TextAlign.center,
                             ));
                       }),

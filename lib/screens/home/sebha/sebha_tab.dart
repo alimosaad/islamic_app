@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/MyThemeData.dart';
+import 'package:islami_app/provider/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provide=Provider.of<MyProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
@@ -38,7 +41,7 @@ class _SebhaTabState extends State<SebhaTab> {
                       left: width * 0.45,
                       bottom: height * 0.32,
                       child: Image.asset(
-                        'assets/images/head of seb7a.png',
+                        provide.headSebha(),
                         width: width * 0.2,
                         height: height * 0.11,
                       )),
@@ -47,7 +50,7 @@ class _SebhaTabState extends State<SebhaTab> {
                       child: Transform.rotate(
                           angle: angle,
                           child:
-                              Image.asset('assets/images/body of seb7a.png'))),
+                              Image.asset( provide.bodySebha()))),
                 ],
               )),
           const SizedBox(
@@ -55,7 +58,9 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
           Text(
             'عدد التسبيحات',
-            style: Theme.of(context).textTheme.headlineSmall,
+            style: TextStyle(color: provide.mode == ThemeMode.light
+                ? MyThemeData.BlackColor
+                : MyThemeData.WhiteColor, fontSize: 24),
           ),
           const SizedBox(
             height: 20,
@@ -64,16 +69,18 @@ class _SebhaTabState extends State<SebhaTab> {
             height: 50,
             width: 50,
             decoration: BoxDecoration(
-              color: MyThemeData.primaryColor,
+              color: provide.mode == ThemeMode.light
+                  ? MyThemeData.primaryColor
+                  : MyThemeData.primaryColorDark,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
                 '$counter',
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(
+                    color: provide.mode == ThemeMode.light
+                    ? MyThemeData.BlackColor
+                    : MyThemeData.WhiteColor, fontSize: 24),
               ),
             ),
           ),
@@ -98,11 +105,15 @@ class _SebhaTabState extends State<SebhaTab> {
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).primaryColor),
+                  borderRadius: BorderRadius.circular(30),
+                color: provide.mode == ThemeMode.light
+                    ? MyThemeData.primaryColor
+                    : MyThemeData.YellowColor,),
               child: Text(
                 tasbeh[tasbehCount],
-                style: Theme.of(context).textTheme.displaySmall,
+                style: TextStyle(color: provide.mode == ThemeMode.light
+                    ? MyThemeData.WhiteColor
+                    : MyThemeData.BlackColor, fontSize: 24),
               ),
             ),
           ),
