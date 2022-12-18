@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sebha": MessageLookupByLibrary.simpleMessage("السبحة"),
         "settings": MessageLookupByLibrary.simpleMessage("الأعدادات"),
         "sura_name": MessageLookupByLibrary.simpleMessage("إسم السورة"),
+        "tasbihat": MessageLookupByLibrary.simpleMessage("عدد التسبيحات"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع")
       };
 }

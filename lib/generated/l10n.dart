@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Tasbihat Number`
+  String get tasbihat {
+    return Intl.message(
+      'Tasbihat Number',
+      name: 'tasbihat',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get language {
     return Intl.message(
