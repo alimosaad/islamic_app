@@ -49,6 +49,36 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Islami`
+  String get apptitle {
+    return Intl.message(
+      'Islami',
+      name: 'apptitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sura Names`
+  String get sura_name {
+    return Intl.message(
+      'Sura Names',
+      name: 'sura_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ahadeth`
+  String get ahadeth {
+    return Intl.message(
+      'Ahadeth',
+      name: 'ahadeth',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +87,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 
