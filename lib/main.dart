@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami_app/MyThemeData.dart';
 import 'package:islami_app/provider/my_provider.dart';
+import 'package:islami_app/provider/sharedprefrence.dart';
 import 'package:islami_app/screens/home/hadeth/ahadeth_detail.dart';
 import 'package:islami_app/screens/home/home.dart';
 import 'package:islami_app/screens/home/quran/sura__detail.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Shared.prefs=await SharedPreferences.getInstance();
   runApp(ChangeNotifierProvider(
-      create: (context)=>MyProvider(),
+      create: (context)=>MyProvider()..getThemeAndLang(),
       child: const MyApp()));
 }
 
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var provider=Provider.of<MyProvider>(context);
+
     return MaterialApp(
       localizationsDelegates: [
         AppLocalizations.delegate,
