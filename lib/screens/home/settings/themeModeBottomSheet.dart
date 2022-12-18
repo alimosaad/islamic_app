@@ -11,7 +11,10 @@ class ThemeModeBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      color: provider.mode == ThemeMode.light
+          ? MyThemeData.WhiteColor
+          : MyThemeData.BlackColor,
+
       child: Column(
         children: [
           InkWell(
@@ -28,14 +31,14 @@ class ThemeModeBottomSheet extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: provider.mode == ThemeMode.light
                             ? MyThemeData.primaryColor
-                            : MyThemeData.BlackColor),
+                            : MyThemeData.WhiteColor),
                   ),
                   Spacer(),
                   Icon(Icons.done,
                       size: 30,
                       color: provider.mode == ThemeMode.light
                           ? MyThemeData.primaryColor
-                          : MyThemeData.BlackColor)
+                          : MyThemeData.WhiteColor)
                 ],
               ),
             ),

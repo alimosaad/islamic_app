@@ -76,8 +76,10 @@ class SettingTab extends StatelessWidget {
 
   void showLanguageBottomSheet(BuildContext context) {
     showModalBottomSheet(
+
         context: context,
         builder: (context) {
+
           return LanguageBottobSheet();
         });
   }
