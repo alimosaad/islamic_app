@@ -4,6 +4,7 @@ import 'package:islami_app/provider/my_provider.dart';
 import 'package:islami_app/screens/home/settings/languageSheet.dart';
 import 'package:islami_app/screens/home/settings/themeModeBottomSheet.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingTab extends StatelessWidget {
   @override
@@ -15,7 +16,7 @@ class SettingTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Languag',
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,7 +32,9 @@ class SettingTab extends StatelessWidget {
                   border: Border.all(color: MyThemeData.OnprimaryColor),
                   borderRadius: BorderRadius.circular(15)),
               child: Text(
-                provid.languageCode == 'en' ? "English" : "Arabic",
+                provid.languageCode == 'en'
+                    ? AppLocalizations.of(context)!.english
+                    : AppLocalizations.of(context)!.arabic,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -40,7 +43,7 @@ class SettingTab extends StatelessWidget {
             height: 20,
           ),
           Text(
-            'Theme',
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -56,7 +59,9 @@ class SettingTab extends StatelessWidget {
                   border: Border.all(color: MyThemeData.OnprimaryColor),
                   borderRadius: BorderRadius.circular(15)),
               child: Text(
-                provid.mode == ThemeMode.light ? "Light" : "dark",
+                provid.mode == ThemeMode.light
+                    ? AppLocalizations.of(context)!.light
+                    : AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),

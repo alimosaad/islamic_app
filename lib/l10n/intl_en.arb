@@ -1,5 +1,17 @@
 {
     "apptitle": "Islami",
     "sura_name": "Sura Names",
-    "ahadeth": "Ahadeth"
+    "ahadeth": "Ahadeth",
+    "quran":"Quran",
+    "hadeth":"Hadeth",
+    "sebha":"Sebha",
+    "radio":"Radio",
+    "settings":"Settings",
+    "holyquran":"Holy Quran Radio",
+    "language":"Language",
+    "theme":"Theme",
+    "arabic":"Arabic",
+    "english":"English",
+    "light":"Light",
+    "dark":"Dark"
 }

@@ -1,5 +1,17 @@
 {
     "apptitle": "إسلامي",
     "sura_name": "إسم السورة",
-    "ahadeth": "أحاديث"
+    "ahadeth": "أحاديث",
+    "quran":"القرأن",
+    "hadeth":"الحديث",
+    "sebha":"السبحة",
+    "radio":"الراديو",
+    "settings":"الأعدادات",
+    "holyquran":"إذاعة القرآن الكريم",
+    "language":"اللغة",
+    "theme":"الوضع",
+    "arabic":"العربية",
+    "english":"الإنجليزية",
+    "light":"مضيئ",
+    "dark":"مظلم"
 }

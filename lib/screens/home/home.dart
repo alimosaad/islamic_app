@@ -60,37 +60,37 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedItemColor: provide.mode == ThemeMode.light
                 ? MyThemeData.BlackColor
                 : MyThemeData.YellowColor,
-            items: const [
+            items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage("assets/images/moshaf_gold.png"),
                     size: 25,
                   ),
-                  label: "Quran"),
+                  label: AppLocalizations.of(context)!.quran),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage("assets/images/Path 1.png"),
                     size: 25,
                   ),
-                  label: "Hadeth"),
+                  label: AppLocalizations.of(context)!.hadeth),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage("assets/images/sebha_blue.png"),
                     size: 25,
                   ),
-                  label: "Sebha"),
+                  label: AppLocalizations.of(context)!.sebha),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage("assets/images/radio_blue.png"),
                     size: 25,
                   ),
-                  label: "Radio"),
+                  label: AppLocalizations.of(context)!.radio),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.settings,
                     size: 25,
                   ),
-                  label: "Settings"),
+                  label: AppLocalizations.of(context)!.settings),
             ],
           ),
         ),

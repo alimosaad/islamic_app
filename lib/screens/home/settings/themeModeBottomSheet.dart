@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../MyThemeData.dart';
 import '../../../provider/my_provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ThemeModeBottomSheet extends StatelessWidget {
   const ThemeModeBottomSheet({Key? key}) : super(key: key);
 
@@ -24,7 +24,7 @@ class ThemeModeBottomSheet extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Light',
+                    AppLocalizations.of(context)!.light,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: provider.mode == ThemeMode.light
                             ? MyThemeData.primaryColor
@@ -50,7 +50,7 @@ class ThemeModeBottomSheet extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Dark',
+                    AppLocalizations.of(context)!.dark,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: provider.mode == ThemeMode.dark
                             ? MyThemeData.YellowColor
