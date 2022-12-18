@@ -1,74 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/provider/my_provider.dart';
+import 'package:islami_app/provider/sura_provider.dart';
 import 'package:islami_app/screens/home/quran/ayaat.dart';
+import 'package:provider/provider.dart';
 
 import '../../../MyThemeData.dart';
 
-class SuraDetail extends StatefulWidget {
+class SuraDetail extends StatelessWidget {
   static const String routeName = "sura_detail";
 
   @override
-  State<SuraDetail> createState() => _SuraDetailState();
-}
-
-class _SuraDetailState extends State<SuraDetail> {
-  List<String> aya = [];
-
-  @override
   Widget build(BuildContext context) {
+    var provide=Provider.of<MyProvider>(context);
     SuraDetailsArgs args =
         ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
-    if(aya.isEmpty){
-      loadFile(args.index);
-    }
 
-    return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/bg3.png"), fit: BoxFit.fill)),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(
-            args.suraName,
-            style: TextStyle(color: MyThemeData.BlackColor, fontSize: 24),
-          ),
-        ),
-        body:aya.length==0?Center(child: CircularProgressIndicator()):
-        Container(
+
+    return ChangeNotifierProvider(
+      create: (context)=>SuraProvider()..loadFile(args.index),
+      builder: (context,child){
+        var provider=Provider.of<SuraProvider>(context);
+
+        return Container(
           decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-              color: MyThemeData.primaryColor
+              image: DecorationImage(
+                  image: AssetImage(provide.getBackground()), fit: BoxFit.fill)),
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              title: Text(
+                args.suraName,
+                style: TextStyle(color: provide.mode == ThemeMode.light
+                    ? MyThemeData.BlackColor
+                    : MyThemeData.WhiteColor, fontSize: 24),
+              ),
             ),
-            borderRadius: BorderRadius.circular(20)
+            body:provider.aya.length==0?Center(child: CircularProgressIndicator()):
+            Container(
+              decoration: BoxDecoration(
+                  color:provide.mode == ThemeMode.light
+                      ? MyThemeData.WhiteColor
+                      : MyThemeData.primaryColorDark,
+                  border: Border.all(
+                      color: provide.mode == ThemeMode.light
+                          ? MyThemeData.WhiteColor
+                          : MyThemeData.primaryColorDark
+                  ),
+                  borderRadius: BorderRadius.circular(20)
+              ),
+              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
+              child: ListView.separated(
+                  separatorBuilder: (c,index){
+                    return Divider(
+                      color: MyThemeData.BlackColor,
+                      indent: 30,
+                      endIndent: 30,
+                    );
+                  },
+                  itemCount: provider.aya.length,
+                  itemBuilder: (context, index) {
+                    return AyaItem("${provider.aya[index]}");
+                  }),
+            ),
           ),
-          margin: EdgeInsets.symmetric(horizontal: 20,vertical: 25),
-          child: ListView.separated(
-            separatorBuilder: (c,index){
-              return Divider(
-                color: MyThemeData.BlackColor,
-                indent: 30,
-                endIndent: 30,
-              );
-            },
-              itemCount: aya.length,
-              itemBuilder: (context, index) {
-                return AyaItem("${aya[index]}");
-              }),
-        ),
-      ),
+        );
+      },
     );
-  }
-
-  void loadFile(int index) async {
-    String content =
-        await rootBundle.loadString("assets/files/${index + 1}.txt");
-    List<String> lines = content.split('\n');
-    aya=lines;
-    setState(() {
-
-    });
   }
 }
 

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/MyThemeData.dart';
+import 'package:islami_app/provider/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provide=Provider.of<MyProvider>(context);
     return Column(
       children: [
         Spacer(),
@@ -13,7 +16,10 @@ class RadioTab extends StatelessWidget {
         ),
         Text(
           "إذاعة القرآن الكريم",
-          style: Theme.of(context).textTheme.headlineSmall,
+          style:TextStyle(color: provide.mode == ThemeMode.light
+              ? MyThemeData.BlackColor
+              : MyThemeData.WhiteColor, fontSize: 24),
+
         ),
         SizedBox(
           height: 50,
@@ -25,7 +31,9 @@ class RadioTab extends StatelessWidget {
                     onTap: () {},
                     child: Icon(
                       Icons.skip_previous,
-                      color: MyThemeData.primaryColor,
+                      color: provide.mode == ThemeMode.light
+                          ? MyThemeData.primaryColor
+                          : MyThemeData.YellowColor,
                       size: 40,
                     ))),
             Expanded(
@@ -33,7 +41,9 @@ class RadioTab extends StatelessWidget {
                     onTap: () {},
                     child: Icon(
                       Icons.play_arrow,
-                      color: MyThemeData.primaryColor,
+                      color: provide.mode == ThemeMode.light
+                          ? MyThemeData.primaryColor
+                          : MyThemeData.YellowColor,
                       size: 40,
                     ))),
             Expanded(
@@ -41,7 +51,9 @@ class RadioTab extends StatelessWidget {
                     onTap: () {},
                     child: Icon(
                       Icons.skip_next,
-                      color: MyThemeData.primaryColor,
+                      color: provide.mode == ThemeMode.light
+                          ? MyThemeData.primaryColor
+                          : MyThemeData.YellowColor,
                       size: 40,
                     )))
           ],
